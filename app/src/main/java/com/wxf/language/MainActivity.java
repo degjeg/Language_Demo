@@ -9,6 +9,10 @@ public class MainActivity extends BaseAc {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        locale = Store.getLanguageLocal(this);
+        changeAppLanguage(locale);
+
         setContentView(R.layout.activity_main);
         setTitle("第一个Activity");
         findViewById(R.id.btn_setting).setOnClickListener(new View.OnClickListener() {

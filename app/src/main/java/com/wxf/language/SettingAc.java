@@ -17,8 +17,8 @@ public class SettingAc extends BaseAc {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("设置Activity");
-        final String[] cities = {getString(R.string.lan_chinese), getString(R.string.lan_en), getString(R.string.lan_ja), getString(R.string.lan_de)};
-        final String[] locals = {"zh_CN", "en", "ja", "de"};
+        final String[] cities = {getString(R.string.lan_chinese), getString(R.string.lan_en), getString(R.string.lan_ja), getString(R.string.lan_de), "不支持"};
+        final String[] locals = {"zh_CN", "en", "ja", "de", "xp_jk"};
         Button button = (Button)findViewById(R.id.btn_setting);
         button.setText("Language");
         button.setOnClickListener(new View.OnClickListener() {
@@ -32,8 +32,10 @@ public class SettingAc extends BaseAc {
                     @Override
                     public void onClick(DialogInterface dialog, int which)
                     {
+                        locale = locals[which];
                         Store.setLanguageLocal(SettingAc.this, locals[which]);
-                        EventBus.getDefault().post("EVENT_REFRESH_LANGUAGE");
+                        // EventBus.getDefault().post("EVENT_REFRESH_LANGUAGE");
+                        updateLanguageIfNeeded();
                     }
                 });
                 builder.show();

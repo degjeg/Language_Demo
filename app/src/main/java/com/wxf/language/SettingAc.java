@@ -19,7 +19,7 @@ public class SettingAc extends BaseAc {
         setTitle("设置Activity");
         final String[] cities = {getString(R.string.lan_chinese), getString(R.string.lan_en), getString(R.string.lan_ja), getString(R.string.lan_de), "不支持"};
         final String[] locals = {"zh_CN", "en", "ja", "de", "xp_jk"};
-        Button button = (Button)findViewById(R.id.btn_setting);
+        Button button = (Button)findViewById(R.id.btn_setting1);
         button.setText("Language");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
